@@ -58,10 +58,10 @@ Our model was a **Multi-Layer Perceptron (MLP)** with:
 
 ## Visualizations
 ### Model (Baseline 3) Results
-![Model Results](images/model_results.png)
+![Model Results](model_results.png)
 
 ### Data Distribution
-![Feature Histograms](images/feature_histograms.png)
+![Feature Histograms](feature_histograms.png)
 
 ---
 
