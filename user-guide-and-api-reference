@@ -1,0 +1,146 @@
+# User Guide and API Reference for Bird Species Distribution Modeling
+
+Welcome to the user guide and API reference for the **Bird Species Distribution Modeling with Location Information** project. This document provides detailed instructions for setting up, running, and utilizing the tools in this repository, along with a complete reference to the project’s API.
+
+---
+
+## User Guide
+
+### 1. Prerequisites
+
+Ensure that you have the following installed:
+
+- Python 3.8 or higher
+- pip (Python package manager)
+- Git
+
+### 2. Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/DanielleRaine/Bird-Species-Distribution-Modeling-with-Location-Information.git
+   cd Bird-Species-Distribution-Modeling-with-Location-Information
+   ```
+2. **Install required packages:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 3. Directory Structure
+
+- `2311.00936v1.pdf`: Paper describing the SatBird dataset and methodology.
+- `DataAugcsv.ipynb`: Notebook for data augmentation experiments.
+- `MLP_Loss+Trainer.ipynb`: Training notebook for models without location encoding.
+- `MLP_Loss+Trainer_LOCATION.ipynb`: Training notebook for models with location encoding.
+- `NormalizationTest.ipynb`: Testing normalization methods.
+- `NormalizationTrain.ipynb`: Applying normalization during training.
+- `NormalizationVal.ipynb`: Validating normalization.
+- `Targets_JSON_to_CSV.ipynb`: Script for converting target data formats.
+- `feature_histograms.png`: Visualization of feature distributions.
+- `model_results.png`: Visualization of model performance metrics.
+- `README.md`: Overview of the project.
+
+### 4. Running the Project
+
+#### Step 1: Data Augmentation
+
+Augment environmental features to mimic real-world variability by running `DataAugcsv.ipynb`:
+
+1. Open the notebook in Jupyter or Colab.
+2. Execute all cells to generate augmented data files.
+
+#### Step 2: Model Training
+
+Train the MLP model using either `MLP_Loss+Trainer.ipynb` or `MLP_Loss+Trainer_LOCATION.ipynb`:
+
+1. Choose the notebook based on your desired configuration (with or without location encoding).
+2. Execute the cells sequentially to train the model and save results.
+
+#### Step 3: Model Evaluation
+
+Evaluate the trained model by running performance metrics and visualizations in:
+
+- `NormalizationTest.ipynb`
+- `NormalizationVal.ipynb`
+
+Options:
+- Adjust parameters for batch size or learning rate directly within the notebooks.
+
+### 5. Example Outputs
+
+- **feature_histograms.png**: Shows the distributions of the 29 input features.
+- **model_results.png**: Summarizes evaluation metrics across Baseline 1, Baseline 2, and Baseline 3.
+
+### 6. Troubleshooting
+
+- **Slow Training:** Reduce dataset size or batch size in training notebooks.
+- **Memory Issues:** Use data loaders with smaller batches or a machine with higher RAM.
+
+---
+
+## API Reference
+
+### 1. Data Augmentation (`DataAugcsv.ipynb`)
+
+#### Functions:
+
+- **`add_gaussian_noise(df: pd.DataFrame, std_dev: float) -> pd.DataFrame`**
+
+  - Adds Gaussian noise to mimic real-world variability.
+  - **Parameters:**
+    - `df`: DataFrame containing raw features.
+    - `std_dev`: Standard deviation of the noise.
+  - **Returns:** Augmented DataFrame.
+
+### 2. Model Training (`MLP_Loss+Trainer.ipynb`, `MLP_Loss+Trainer_LOCATION.ipynb`)
+
+#### Functions:
+
+- **`train_mlp_model(data: pd.DataFrame, epochs: int, batch_size: int) -> nn.Module`**
+
+  - Trains an MLP model.
+  - **Parameters:**
+    - `data`: Preprocessed dataset.
+    - `epochs`: Number of training epochs.
+    - `batch_size`: Number of samples per batch.
+  - **Returns:** Trained PyTorch model.
+
+### 3. Data Normalization (`NormalizationTrain.ipynb`, `NormalizationVal.ipynb`)
+
+#### Functions:
+
+- **`apply_normalization(df: pd.DataFrame, method: str) -> pd.DataFrame`**
+
+  - Normalizes dataset using specified methods.
+  - **Parameters:**
+    - `df`: DataFrame containing features.
+    - `method`: Normalization method (`standard`, `boxcox`, `yeojohnson`).
+  - **Returns:** Normalized DataFrame.
+
+### 4. Evaluation Metrics (`NormalizationTest.ipynb`)
+
+#### Functions:
+
+- **`calculate_metrics(y_true: np.array, y_pred: np.array) -> Dict[str, float]`**
+
+  - Computes MSE, MAE, and Top-k metrics.
+  - **Parameters:**
+    - `y_true`: Ground truth values.
+    - `y_pred`: Predicted values.
+  - **Returns:** Dictionary of metrics.
+
+---
+
+## Contact
+
+For questions or support, please reach out to:
+
+- **Danielle Raine:** [dih220001@utdallas.edu](mailto\:dih220001@utdallas.edu)
+- **Brielle Young:** [bgy5@cornell.edu](mailto\:bgy5@cornell.edu)
+- **Frantzia Theodat:** [frantziatheodat@gmail.com](mailto\:frantziatheodat@gmail.com)
+- **Connie Deng:** [conniedeng303@gmail.com](mailto\:conniedeng303@gmail.com)
+
+---
+
+We hope this guide and reference help you make the most of the Bird Species Distribution Modeling project. Happy modeling!
+
