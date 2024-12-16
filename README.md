@@ -91,7 +91,7 @@ Our model was a **Multi-Layer Perceptron (MLP)** with:
 ---
 
 ## Documentation
-Complete documentation, including API details, is available in the `docs/` folder. Key sections include:
+Complete documentation, including API details, is available in the 'user-guide-and-api-reference' file. Key sections include:
 - **User Guide:** Step-by-step instructions for data preparation, training, and evaluation.
 - **API Reference:** Functions and modules used in the project.
 
