@@ -1,1 +1,1 @@
-# Bird-Species-Distribution-Modeling-with-Location-Information
+# bird-species-distribution-modeling-with-location-information
